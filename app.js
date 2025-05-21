@@ -1,6 +1,8 @@
 import fetch from "node-fetch";
 import express from "express";
 import cors from "cors";
+import { configDotenv } from "dotenv";
+configDotenv();
 const app = express();
 app.use(cors());
 const port = process.env.PORT || 3000;
@@ -16,6 +18,7 @@ app.post("/", (req, res) => {
     console.error("Error al enviar con fetch:", err);
   });
 
+  //console.log(req.body)
   // Responder inmediatamente sin esperar
   res.status(200).send("ok");
 });
